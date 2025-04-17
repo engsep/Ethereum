@@ -1,0 +1,329 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Proof Of Existence v9",
+        "version": "1.0.0",
+        "description": "API for interacting with the Proof Of Existence v9 smart contract on the blockchain."
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3005",
+            "description": "Local development server"
+        }
+    ],
+    "paths": {
+        "/createProofHash": {
+            "post": {
+                "summary": "Create a proof hash from a document",
+                "requestBody": {
+                    "description": "Document to generate the hash from",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "document"
+                                ],
+                                "properties": {
+                                    "document": {
+                                        "type": "string",
+                                        "example": "Document..."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Hash created successfully"
+                    },
+                    "400": {
+                        "description": "Error creating hash"
+                    }
+                }
+            }
+        },
+        "/certify": {
+            "post": {
+                "summary": "Certify a document with optional metadata",
+                "requestBody": {
+                    "description": "Document and optional metadata to certify",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "document"
+                                ],
+                                "properties": {
+                                    "document": {
+                                        "type": "string",
+                                        "example": "Document..."
+                                    },
+                                    "metadata": {
+                                        "type": "string",
+                                        "example": "Certification metadata..."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Document certified successfully"
+                    },
+                    "400": {
+                        "description": "Certification failed"
+                    }
+                }
+            }
+        },
+        "/cancel": {
+            "post": {
+                "summary": "Cancel a certified document",
+                "requestBody": {
+                    "description": "Document and optional metadata to cancel",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "document"
+                                ],
+                                "properties": {
+                                    "document": {
+                                        "type": "string",
+                                        "example": "Document..."
+                                    },
+                                    "metadata": {
+                                        "type": "string",
+                                        "example": "Cancellation reason..."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Document cancelled successfully"
+                    },
+                    "400": {
+                        "description": "Cancellation failed"
+                    }
+                }
+            }
+        },
+        "/notarize": {
+            "post": {
+                "summary": "Notarize a hash with optional metadata",
+                "requestBody": {
+                    "description": "Hash and optional metadata to notarize",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "hash"
+                                ],
+                                "properties": {
+                                    "hash": {
+                                        "type": "string",
+                                        "example": "0xab933156f7ce2fb2f76f4452c42a52944a0016b03b1edc5efad01bb3e25e6769"
+                                    },
+                                    "metadata": {
+                                        "type": "string",
+                                        "example": "Notarization metadata..."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Hash notarized successfully"
+                    },
+                    "400": {
+                        "description": "Notarization failed"
+                    }
+                }
+            }
+        },
+        "/nullify": {
+            "post": {
+                "summary": "Nullify a hash with optional metadata",
+                "requestBody": {
+                    "description": "Hash and optional metadata to nullify",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "hash"
+                                ],
+                                "properties": {
+                                    "hash": {
+                                        "type": "string",
+                                        "example": "0xab933156f7ce2fb2f76f4452c42a52944a0016b03b1edc5efad01bb3e25e6769"
+                                    },
+                                    "metadata": {
+                                        "type": "string",
+                                        "example": "Nullification reason..."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Hash nullified successfully"
+                    },
+                    "400": {
+                        "description": "Nullification failed"
+                    }
+                }
+            }
+        },
+        "/check": {
+            "post": {
+                "summary": "Check the certification status of a document",
+                "requestBody": {
+                    "description": "Document to check",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "document"
+                                ],
+                                "properties": {
+                                    "document": {
+                                        "type": "string",
+                                        "example": "Document..."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Document notarized"
+                    },
+                    "400": {
+                        "description": "Document not notarized"
+                    }
+                }
+            }
+        },
+        "/getHistory": {
+            "post": {
+                "summary": "Get the history of a hash",
+                "requestBody": {
+                    "description": "Hash to retrieve history for",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "hash"
+                                ],
+                                "properties": {
+                                    "hash": {
+                                        "type": "string",
+                                        "example": "0xab933156f7ce2fb2f76f4452c42a52944a0016b03b1edc5efad01bb3e25e6769"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "History retrieved successfully"
+                    },
+                    "400": {
+                        "description": "Error retrieving history"
+                    }
+                }
+            }
+        },
+        "/getProof": {
+            "post": {
+                "summary": "Retrieve the full proof of a hash",
+                "requestBody": {
+                    "description": "Hash to retrieve proof for",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "hash"
+                                ],
+                                "properties": {
+                                    "hash": {
+                                        "type": "string",
+                                        "example": "0xab933156f7ce2fb2f76f4452c42a52944a0016b03b1edc5efad01bb3e25e6769"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Proof retrieved successfully"
+                    },
+                    "400": {
+                        "description": "Error retrieving proof"
+                    }
+                }
+            }
+        },
+        "/verify": {
+            "post": {
+                "summary": "Verify the existence of a hash",
+                "requestBody": {
+                    "description": "Hash to verify",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "hash"
+                                ],
+                                "properties": {
+                                    "hash": {
+                                        "type": "string",
+                                        "example": "0xab933156f7ce2fb2f76f4452c42a52944a0016b03b1edc5efad01bb3e25e6769"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Hash verified successfully"
+                    },
+                    "400": {
+                        "description": "Verification failed"
+                    }
+                }
+            }
+        }
+    }
+}

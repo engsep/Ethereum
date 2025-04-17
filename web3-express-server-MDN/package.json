@@ -1,0 +1,24 @@
+{
+  "name": "web3-express-server-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "MonitoringDataNotarizationAPI.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node MonitoringDataNotarizationAPI.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^2.1.13",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "keccak256": "^1.0.6",
+    "logs-decoder": "^3.1.4",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "truffle-hdwallet-provider": "^1.0.17",
+    "web3": "^1.9.0"
+  }
+}

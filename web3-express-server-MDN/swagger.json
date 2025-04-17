@@ -1,0 +1,173 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Monitoring Data Notarization",
+        "version": "1.0.0",
+        "description": "API for interacting with the Monitoring Data Notarization smart contract to certify, notarize, and verify sets of monitoring data on the blockchain."
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000",
+            "description": "Local development server"
+        }
+    ],
+    "paths": {
+        "/certify": {
+            "post": {
+                "summary": "Certify a label-data pair",
+                "requestBody": {
+                    "description": "Label and raw data to certify",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "label",
+                                    "data"
+                                ],
+                                "properties": {
+                                    "label": {
+                                        "type": "string",
+                                        "example": "SensorA"
+                                    },
+                                    "data": {
+                                        "type": "string",
+                                        "example": "{\"pressure\":101.3}"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Data certified successfully"
+                    },
+                    "400": {
+                        "description": "Certification failed"
+                    }
+                }
+            }
+        },
+        "/notarize": {
+            "post": {
+                "summary": "Notarize a hash for a given timestamp and label",
+                "requestBody": {
+                    "description": "Timestamp, label, and data hash to notarize",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "timestamp",
+                                    "label",
+                                    "hash"
+                                ],
+                                "properties": {
+                                    "timestamp": {
+                                        "type": "integer",
+                                        "example": 1744705800000
+                                    },
+                                    "label": {
+                                        "type": "string",
+                                        "example": "SensorB 15-04-2025 08:30:00"
+                                    },
+                                    "hash": {
+                                        "type": "string",
+                                        "example": "0x587bfc80a5b13404845817ebf05179b1853af812c8158c9ee3ce78f507583685"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Hash notarized successfully"
+                    },
+                    "400": {
+                        "description": "Notarization failed"
+                    }
+                }
+            }
+        },
+        "/check": {
+            "post": {
+                "summary": "Check data at a given timestamp",
+                "requestBody": {
+                    "description": "Timestamp and raw data to check notarization status",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "timestamp",
+                                    "data"
+                                ],
+                                "properties": {
+                                    "timestamp": {
+                                        "type": "integer",
+                                        "example": 1744705800000
+                                    },
+                                    "data": {
+                                        "type": "string",
+                                        "example": "{\"humidity\":55}"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Data already notarized"
+                    },
+                    "400": {
+                        "description": "Data not yet notarized"
+                    }
+                }
+            }
+        },
+        "/verify": {
+            "post": {
+                "summary": "Verify a hash at a given timestamp",
+                "requestBody": {
+                    "description": "Timestamp and data hash to verify",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "timestamp",
+                                    "hash"
+                                ],
+                                "properties": {
+                                    "timestamp": {
+                                        "type": "integer",
+                                        "example": 1744705800000
+                                    },
+                                    "hash": {
+                                        "type": "string",
+                                        "example": "0x587bfc80a5b13404845817ebf05179b1853af812c8158c9ee3ce78f507583685"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Hash already notarized"
+                    },
+                    "400": {
+                        "description": "Hash not yet notarized"
+                    }
+                }
+            }
+        }
+    }
+}

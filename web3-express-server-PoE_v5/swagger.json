@@ -1,0 +1,158 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Proof Of Existence v5",
+        "version": "1.0.0",
+        "description": "API for interacting with the Proof Of Existence v5 smart contract on the blockchain."
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3005",
+            "description": "Local development server"
+        }
+    ],
+    "paths": {
+        "/createProofHash": {
+            "post": {
+                "summary": "Generate a proof hash from a document",
+                "requestBody": {
+                    "description": "Document to hash",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "document": {
+                                        "type": "string",
+                                        "example": "Document..."
+                                    }
+                                },
+                                "required": [
+                                    "document"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Proof hash successfully generated"
+                    },
+                    "400": {
+                        "description": "Error generating proof hash"
+                    }
+                }
+            }
+        },
+        "/getProof": {
+            "post": {
+                "summary": "Retrieve proof information by hash",
+                "requestBody": {
+                    "description": "Hash to retrieve proof for",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "hash": {
+                                        "type": "string",
+                                        "example": "0xb6dc66354a06f1167eb7a39fe7862d47161ec0cbbf61cd921543b5b3723fd5e6"
+                                    }
+                                },
+                                "required": [
+                                    "hash"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Proof data retrieved successfully"
+                    },
+                    "400": {
+                        "description": "Error retrieving proof"
+                    }
+                }
+            }
+        },
+        "/certify": {
+            "post": {
+                "summary": "Certify a document by its content and description",
+                "requestBody": {
+                    "description": "Document and description to certify",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "document": {
+                                        "type": "string",
+                                        "example": "Document..."
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Certification description..."
+                                    }
+                                },
+                                "required": [
+                                    "document",
+                                    "description"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Document successfully certified"
+                    },
+                    "400": {
+                        "description": "Error during certification"
+                    }
+                }
+            }
+        },
+        "/notarize": {
+            "post": {
+                "summary": "Notarize a previously created proof hash",
+                "requestBody": {
+                    "description": "Hash and description for notarization",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "hash": {
+                                        "type": "string",
+                                        "example": "0xb6dc66354a06f1167eb7a39fe7862d47161ec0cbbf61cd921543b5b3723fd5e6"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Notarization description..."
+                                    }
+                                },
+                                "required": [
+                                    "hash",
+                                    "description"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Document successfully notarized"
+                    },
+                    "400": {
+                        "description": "Error during notarization"
+                    }
+                }
+            }
+        }
+    }
+}
