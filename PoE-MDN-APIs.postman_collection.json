@@ -1,0 +1,506 @@
+{
+	"info": {
+		"_postman_id": "4b31fee8-f393-420a-8e59-7e3fa125195a",
+		"name": "PoE-MDN-APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2491804",
+		"_collection_link": "https://lively-sunset-8211.postman.co/workspace/Engineering~f2391c68-4c40-40e7-a9a6-394301251838/collection/2491804-4b31fee8-f393-420a-8e59-7e3fa125195a?action=share&source=collection_link&creator=2491804"
+	},
+	"item": [
+		{
+			"name": "PoE_v5",
+			"item": [
+				{
+					"name": "createProofHash",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"document\": \"Document...\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{POEV5APIURL}}/createProofHash",
+							"host": [
+								"{{POEV5APIURL}}"
+							],
+							"path": [
+								"createProofHash"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProof",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"hash\": \"0xb6dc66354a06f1167eb7a39fe7862d47161ec0cbbf61cd921543b5b3723fd5e6\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{POEV5APIURL}}/getProof",
+							"host": [
+								"{{POEV5APIURL}}"
+							],
+							"path": [
+								"getProof"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "certify",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"document\": \"Data to be notarized\",\r\n    \"description\": \"Certification description...\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{POEV5APIURL}}/certify",
+							"host": [
+								"{{POEV5APIURL}}"
+							],
+							"path": [
+								"certify"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "notarize",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"hash\": \"0xb6dc66354a06f1167eb7a39fe7862d47161ec0cbbf61cd921543b5b3723fd5e6\",\r\n    \"description\": \"Description of the document to be certified\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{POEV5APIURL}}/notarize",
+							"host": [
+								"{{POEV5APIURL}}"
+							],
+							"path": [
+								"notarize"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PoE_v9",
+			"item": [
+				{
+					"name": "createProofHash",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"document\": \"Document...\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{POEV9APIURL}}/createProofHash",
+							"host": [
+								"{{POEV9APIURL}}"
+							],
+							"path": [
+								"createProofHash"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "certify",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"document\": \"Document...\",\r\n    \"metadata\": \"Certification metadata...\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{POEV9APIURL}}/certify",
+							"host": [
+								"{{POEV9APIURL}}"
+							],
+							"path": [
+								"certify"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cancel",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"document\": \"Document...\",\r\n    \"metadata\": \"Cancellation reason...\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{POEV9APIURL}}/cancel",
+							"host": [
+								"{{POEV9APIURL}}"
+							],
+							"path": [
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "notarize",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"hash\": \"0xab933156f7ce2fb2f76f4452c42a52944a0016b03b1edc5efad01bb3e25e6769\",\r\n    \"metadata\": \"Notarization metadata...\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{POEV9APIURL}}/notarize",
+							"host": [
+								"{{POEV9APIURL}}"
+							],
+							"path": [
+								"notarize"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "nullify",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"hash\": \"0xab933156f7ce2fb2f76f4452c42a52944a0016b03b1edc5efad01bb3e25e6769\",\r\n    \"metadata\": \"Nullification reason...\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{POEV9APIURL}}/nullify",
+							"host": [
+								"{{POEV9APIURL}}"
+							],
+							"path": [
+								"nullify"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "check",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"document\": \"Document...\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{POEV9APIURL}}/check",
+							"host": [
+								"{{POEV9APIURL}}"
+							],
+							"path": [
+								"check"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getHistory",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"hash\": \"0xab933156f7ce2fb2f76f4452c42a52944a0016b03b1edc5efad01bb3e25e6769\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{POEV9APIURL}}/getHistory",
+							"host": [
+								"{{POEV9APIURL}}"
+							],
+							"path": [
+								"getHistory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProof",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"hash\": \"0xab933156f7ce2fb2f76f4452c42a52944a0016b03b1edc5efad01bb3e25e6769\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{POEV9APIURL}}/getProof",
+							"host": [
+								"{{POEV9APIURL}}"
+							],
+							"path": [
+								"getProof"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verify",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"hash\": \"0xab933156f7ce2fb2f76f4452c42a52944a0016b03b1edc5efad01bb3e25e6769\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{POEV9APIURL}}/verify",
+							"host": [
+								"{{POEV9APIURL}}"
+							],
+							"path": [
+								"verify"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MDN",
+			"item": [
+				{
+					"name": "certify",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"label\": \"SensorA 15-04-2025 15:28\",\r\n    \"data\": \"{\\\"pressure\\\":101.3}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{MDNAPIURL}}/certify",
+							"host": [
+								"{{MDNAPIURL}}"
+							],
+							"path": [
+								"certify"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "notarize",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"label\": \"SensorB 15-04-2025 08:30:00\",\r\n    \"timestamp\": 1744705800000,\r\n    \"hash\": \"0x587bfc80a5b13404845817ebf05179b1853af812c8158c9ee3ce78f507583685\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{MDNAPIURL}}/notarize",
+							"host": [
+								"{{MDNAPIURL}}"
+							],
+							"path": [
+								"notarize"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "check",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"timestamp\": 1744705800000,\r\n    \"data\": \"{\\\"humidity\\\":55}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{MDNAPIURL}}/check",
+							"host": [
+								"{{MDNAPIURL}}"
+							],
+							"path": [
+								"check"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verify",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"timestamp\": 1744705800000,\r\n    \"hash\": \"0xb6dc66354a06f1167eb7a39fe7862d47161ec0cbbf61cd921543b5b3723fd5e6\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{MDNAPIURL}}/verify",
+							"host": [
+								"{{MDNAPIURL}}"
+							],
+							"path": [
+								"verify"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "POEV5APIURL",
+			"value": "http://localhost:3005"
+		},
+		{
+			"key": "POEV9APIURL",
+			"value": "http://localhost:3009",
+			"type": "string"
+		},
+		{
+			"key": "MDNAPIURL",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}

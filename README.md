@@ -91,6 +91,13 @@ Each project folder contains:
 
 ---
 
+## Postman Collection
+
+A Postman collection file is available: `PoE-MDN-APIs.postman_collection.json`.  
+It contains all the API calls for the three services (`PoE_v5`, `PoE_v9`, and `MDN`) and is ready to be used for testing and development purposes.
+
+---
+
 ## 🧱 Requirements
 
 - Node.js (v20 or higher recommended)
@@ -109,3 +116,11 @@ For any questions or support, feel free to open an issue or contact the maintain
 ## 📘 License
 
 This project is licensed under the MIT License.
+
+---
+
+## Security Notice
+
+⚠️ Please use the API servers conscientiously.  
+These servers require the use of a private wallet key, and therefore should be deployed and used in secure and protected environments only.  
+Avoid exposing your `.env` file or using unsecured servers in production environments.
